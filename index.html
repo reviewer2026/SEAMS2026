@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SEAMS 2026 Paper</title>
-    <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- bootstrap CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- font-awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      crossorigin="anonymous"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEAMS 2026 Paper</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- bootstrap CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- font-awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
 
-  <body>
-    <header>
-      <img src="assets/header.png" alt="header image" class="header_img" />
-      <p>
-        Grammar-Constrained Refinement of Safety Operational Rules Using Language in the Loop: What Could Go Wrong
+<body>
+  <header>
+    <!-- Header image -->
+    <img src="assets/llm_header.png" alt="LLM AI illustration" class="header_img" />
+
+    <!-- Paper title -->
+    <p class="paper_title">
+      Grammar-Constrained Refinement of Safety Operational Rules Using Language in the Loop: What Could Go Wrong
+    </p>
+
+    <!-- Authors & conference/year -->
+    <div class="authors_container">
+      <p class="authors_names">
+        <i class="fa-solid fa-users people_icon"></i>
+        <span>Authors:</span> Anonymous
       </p>
-    </header>
+      <p class="year"><i class="fa-solid fa-calendar-days"></i> SEAMS 2026</p>
+    </div>
+  </header>
 
-    <main>
-      <div class="main_container">
-        <div class="authors_container">
-          <p class="authors_names">
-            <i class="fa-solid fa-users people_icon"></i>
-            <span>Authors:</span> Anonymous
-          </p>
-          <p class="year"><i class="fa-solid fa-calendar-days"></i>Year 2026</p>
-        </div>
-
-        <div class="refrence_container">
-          <!-- Citation Button -->
-          <button class="citation_copy" onclick="copyCitation()">📚 Copy BibTeX</button>
-
-          <!-- Dataset / Related Docs Buttons -->
-          <a href="seams26-paper66.pdf" target="_blank" class="refrence_link">📄 Paper PDF</a>
-          <a href="Prompt.docx" target="_blank" class="refrence_link">📄 Prompt</a>
-          <a href="Refined_Rules_results_evaluation.xlsx" target="_blank" class="refrence_link">📄 Refined Rules</a>
-        </div>
-
-        <!-- Abstract -->
-        <p class="main_title">Abstract</p>
-        <p class="main_text">
-          Safety specifications in cyber-physical systems (CPS) capture the operational conditions that the system shall satisfy to operate safely within its intended environment. As environmental conditions evolve, operational rules that express acceptance criteria must be continuously refined to preserve alignment with observed system behavior. These rules, often expressed as logical or quantitative constraints on system behavior, are validated through simulation-based testing but may become inconsistent as new operational conditions or boundary behaviors emerge. We ask: Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement? We introduce a framework that combines counterfactual reasoning with a grammar-constrained refinement loop to refine operational rules, aligning them with the observed system behavior. Applied to an autonomous driving control system, our grammar-constrained refinement loop, supported by counterfactual evidence, successfully resolved the inconsistencies in an operational rule inferred by a conventional baseline while remaining grammar compliant. An empirical LLM variant study further revealed model dependent refinement quality and safety lessons, which motivate parser-based grammar enforcement, stronger automated validation and broader evaluation in future work.
-        </p>
-
-        <p class="main_title research">Research Questions</p>
-        <p class="main_text">
-          RQ1: Can grammar-constrained refinement loop automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity?
-        </p>
-        <p class="main_text">
-          RQ2: What safety concerns emerge from language-in-the-loop refinement of operational rules?
-        </p>
+  <main>
+    <div class="main_container">
+      <!-- Citation & Downloads -->
+      <div class="refrence_container">
+        <button class="citation_copy" onclick="copyCitation()">📚 Copy BibTeX</button>
+        <a href="seams26-paper66-revised_paper.pdf" target="_blank" class="refrence_link">📄 Paper PDF</a>
+        <a href="Prompt.pdf" target="_blank" class="refrence_link">📄 Prompt</a>
+        <a href="Refined_Rules.pdf" target="_blank" class="refrence_link">📄 Refined Rules</a>
       </div>
-    </main>
 
-    <footer>
-      <p class="footer_text">&copy; 2026 All rights reserved. All Authors</p>
-    </footer>
+      <!-- Abstract -->
+      <p class="main_title">Abstract</p>
+      <p class="main_text">
+        Safety specifications in cyber-physical systems (CPS) capture the operational conditions that the system shall satisfy to operate safely within its intended environment. As environmental conditions evolve, operational rules that express acceptance criteria must be continuously refined to preserve alignment with observed system behavior. These rules, often expressed as logical or quantitative constraints on system behavior, are validated through simulation-based testing but may become inconsistent as new operational conditions or boundary behaviors emerge. We ask: Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement? We introduce a framework that combines counterfactual reasoning with a grammar-constrained refinement loop to refine operational rules, aligning them with the observed system behavior. Applied to an autonomous driving control system, our grammar-constrained refinement loop, supported by counterfactual evidence, successfully resolved the inconsistencies in an operational rule inferred by a conventional baseline while remaining grammar compliant. An empirical LLM variant study further revealed model dependent refinement quality and safety lessons, which motivate parser-based grammar enforcement, stronger automated validation and broader evaluation in future work.
+      </p>
 
-    <script>
-      function copyCitation() {
-        const bibtex = `
+      <p class="main_title research">Research Questions</p>
+      <p class="main_text">
+        RQ1: Can grammar-constrained refinement loop automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity?
+      </p>
+      <p class="main_text">
+        RQ2: What safety concerns emerge from language-in-the-loop refinement of operational rules?
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer_text">&copy; 2026 All rights reserved. All Authors</p>
+  </footer>
+
+  <script>
+    function copyCitation() {
+      const bibtex = `
 @inproceedings{yourkey2026,
   title     = {Grammar-Constrained Refinement of Safety Operational Rules Using Language in the Loop: What Could Go Wrong},
   author    = {Anonymous},
   booktitle = {Proceedings of SEAMS 2026},
   year      = {2026}
 }`;
-        navigator.clipboard.writeText(bibtex);
-        alert("Citation copied!");
-      }
-    </script>
-  </body>
+      navigator.clipboard.writeText(bibtex);
+      alert("Citation copied!");
+    }
+  </script>
+</body>
 </html>
-
