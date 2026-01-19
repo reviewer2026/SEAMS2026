@@ -1,54 +1,71 @@
+/* Body & Layout */
 body {
   font-family: Arial, sans-serif;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
-  padding: 30px;
-  background: #f7f7f7;
+  padding: 40px;
+  background-color: #f0f2f5; /* light gray like ICSME24 */
   color: #333;
+  line-height: 1.6;
 }
 
 header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 h1 {
-  font-size: 2.2em;
-  margin-bottom: 10px;
+  font-size: 2.4em; /* large like ICSME24 */
+  margin-bottom: 15px;
 }
 
 .authors {
   font-style: italic;
+  font-size: 1em;
+  color: #555;
 }
 
 .venue {
   font-weight: bold;
+  font-size: 1em;
+  color: #777;
+}
+
+/* Sections */
+main {
+  max-width: 900px;
+  margin: auto;
 }
 
 section {
-  background: white;
-  padding: 20px;
-  margin-bottom: 25px;
-  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+/* Lists */
 ul {
   padding-left: 20px;
 }
 
+/* Buttons */
 .button,
 button {
   display: inline-block;
-  padding: 10px 16px;
-  background: #0077cc;
-  color: white;
-  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1em;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 6px;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .button:hover,
 button:hover {
-  background: #005fa3;
+  background-color: #005fa3;
 }
