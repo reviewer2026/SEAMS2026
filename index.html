@@ -40,8 +40,6 @@
   <main class="container mt-4">
     <!-- Buttons -->
     <div class="button_group mb-4">
-      <button class="btn btn-primary" onclick="copyCitation()">📚 Copy BibTeX</button>
-      <a href="seams26-paper66-revised_paper.pdf" target="_blank" class="btn btn-success">📄 Paper PDF</a>
       <a href="Prompt.pdf" target="_blank" class="btn btn-info text-white">📄 Prompt</a>
       <a href="Refined_Rules.pdf" target="_blank" class="btn btn-warning">📄 Refined Rules</a>
     </div>
@@ -51,11 +49,6 @@
     <p>
       Safety specifications in cyber-physical systems (CPS) capture the operational conditions that the system shall satisfy to operate safely within its intended environment. As environmental conditions evolve, operational rules that express acceptance criteria must be continuously refined to preserve alignment with observed system behavior. These rules, often expressed as logical or quantitative constraints on system behavior, are validated through simulation-based testing but may become inconsistent as new operational conditions or boundary behaviors emerge. We ask: Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement? We introduce a framework that combines counterfactual reasoning with a grammar-constrained refinement loop to refine operational rules, aligning them with the observed system behavior. Applied to an autonomous driving control system, our grammar-constrained refinement loop, supported by counterfactual evidence, successfully resolved the inconsistencies in an operational rule inferred by a conventional baseline while remaining grammar compliant. An empirical LLM variant study further revealed model dependent refinement quality and safety lessons, which motivate parser-based grammar enforcement, stronger automated validation and broader evaluation in future work.
     </p>
-
-    <!-- Research Questions -->
-    <h2>Research Questions</h2>
-    <p><strong>RQ1:</strong> Can grammar-constrained refinement loop automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity?</p>
-    <p><strong>RQ2:</strong> What safety concerns emerge from language-in-the-loop refinement of operational rules?</p>
   </main>
 
   <footer class="text-center mt-5 mb-3">
@@ -77,3 +70,4 @@
   </script>
 </body>
 </html>
+
