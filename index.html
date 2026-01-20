@@ -87,8 +87,10 @@
 
       <p>
       We introduce a grammar-constrained rule refinement framework that leverages counterfactual reasoning combined with grammar-constrained LLM to produce interpretable, syntactically and semantically valid refinements of operational rules. 
-1) Counterfactual Analysis: This step takes as input an inconsistent operational rule and a labeled simulation dataset containing test inputs and observed outcomes. It produces a counterfactual evidence file by generating counterfactual inputs for inputs that expose inconsistencies in the rule.
-2) Rule Refinement Loop: This step runs an iterative loop that uses the evidence, the grammar, and previously consistent rules to have a grammar constrained LLM propose a minimally modified refinement of the inconsistent rule, such as tightening a threshold or adjusting logical structure. Each candidate refinement is checked for grammar and vocabulary compliance, consistency with historical rules using satisfiability checks, and semantic validity on the dataset, and the loop repeats until a refinement passes all checks. The step outputs the validated refined rule along with a brief change log and explanation of how it resolves the observed inconsistency.
+      <br><br>
+        1) Counterfactual Analysis: This step takes as input an inconsistent operational rule and a labeled simulation dataset containing test inputs and observed outcomes. It produces a counterfactual evidence file by generating counterfactual inputs for inputs that expose inconsistencies in the rule.
+      <br><br>
+        2) Rule Refinement Loop: This step runs an iterative loop that uses the evidence, the grammar, and previously consistent rules to have a grammar constrained LLM propose a minimally modified refinement of the inconsistent rule, such as tightening a threshold or adjusting logical structure. Each candidate refinement is checked for grammar and vocabulary compliance, consistency with historical rules using satisfiability checks, and semantic validity on the dataset, and the loop repeats until a refinement passes all checks. The step outputs the validated refined rule along with a brief change log and explanation of how it resolves the observed inconsistency.
     </p>
 
     <!-- Buttons with sentences -->
@@ -124,5 +126,6 @@ These findings highlight what can go wrong even under grammar guidance, motivati
 
 </body>
 </html>
+
 
 
