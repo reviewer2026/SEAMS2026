@@ -56,8 +56,17 @@
 
     <!-- Introduction -->
     <h2>Introduction</h2>
-
-    <!-- Image after Introduction -->
+   <p>
+  Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement?
+  </p>
+    <!-- Approach -->
+    <h2>Approach</h2>
+    <p>
+  We introduce a grammar-constrained rule refinement framework that leverages counterfactual reasoning combined with grammar-constrained LLM to produce interpretable, syntactically and semantically valid refinements of operational rules. 
+  1) Counterfactual Analysis: This step takes as input an inconsistent operational rule and a labeled simulation dataset containing test inputs and observed outcomes. It produces a counterfactual evidence file by generating counterfactual inputs for inputs that expose inconsistencies in the rule.
+  2) Rule Refinement Loop: This step runs an iterative loop that uses the evidence, the grammar, and previously consistent rules to have a grammar constrained LLM propose a minimally modified refinement of the inconsistent rule, such as tightening a threshold or adjusting logical structure. Each candidate refinement is checked for grammar and vocabulary compliance, consistency with historical rules using satisfiability checks, and semantic validity on the dataset, and the loop repeats until a refinement passes all checks. The step outputs the validated refined rule along with a brief change log and explanation of how it resolves the observed inconsistency.
+    </p> 
+ <!-- Image after Introduction -->
     <div class="text-center my-4">
       <img
         src="assets/introduction_figure.png"
@@ -70,21 +79,11 @@
       </p>
     </div>
 
-    <p>
-  Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement?
-  </p>
-    <!-- Approach -->
-    <h2>Approach</h2>
-    <p>
-      
-  We introduce a grammar-constrained rule refinement framework that leverages counterfactual reasoning combined with grammar-constrained LLM to produce interpretable, syntactically and semantically valid refinements of operational rules. 
-  1) Counterfactual Analysis: This step takes as input an inconsistent operational rule and a labeled simulation dataset containing test inputs and observed outcomes. It produces a counterfactual evidence file by generating counterfactual inputs for inputs that expose inconsistencies in the rule.
-  2) Rule Refinement Loop: This step runs an iterative loop that uses the evidence, the grammar, and previously consistent rules to have a grammar constrained LLM propose a minimally modified refinement of the inconsistent rule, such as tightening a threshold or adjusting logical structure. Each candidate refinement is checked for grammar and vocabulary compliance, consistency with historical rules using satisfiability checks, and semantic validity on the dataset, and the loop repeats until a refinement passes all checks. The step outputs the validated refined rule along with a brief change log and explanation of how it resolves the observed inconsistency.
-    </p> 
+    
     <!-- Conclusion -->
     <h2>Conclusion</h2>
     <p>
-  An initial study on an autonomous driving subsystem showed that our loop eliminates inconsistencies produced by the selected conventional method, with $+0.14$ decisiveness. An LLM variant study further exposed model dependent quality and safety trade offs including syntactic violations and over constraining operational rule refinements that risk overfitting to the test data. Limitations of this initial exploration is that grammar compliance alone may result in semantically unjustified or overly conservative refinements under limited evidence. Future work therefore focuses on (i) strengthening grammar enforcement via a strongly typed rule generator and parser based acceptance mechanism that rejects any output violating the grammar or structural format; (ii) reinforcing semantic validation beyond a static regression test suite through simulation based falsification and robustness testing to ensure consistency over the broader input space and the stated ODD, while flagging unjustified tightened constraints and exposing unsafe overfitting; and (iii) mitigating overly conservative refinements by incorporating change minimality into an independent selection mechanism so edits are penalized even when decisiveness is high. For evaluation, we will broaden baselines and study subjects to assess whether grammar constrained LLM refinement offers clear benefits over established interpretable rule learning and specification mining. We will then scale experiments across multiple ADS subsystems, requirements, and ODDs, and study how expanded grammars, prompting strategies, and validation mechanisms affect refinement quality and safety risk in operational settings.
+   An initial study on an autonomous driving subsystem showed that our loop eliminates inconsistencies produced by the selected conventional method, with $+0.14$ decisiveness. An LLM variant study further exposed model dependent quality and safety trade offs including syntactic violations and over constraining operational rule refinements that risk overfitting to the test data. Limitations of this initial exploration is that grammar compliance alone may result in semantically unjustified or overly conservative refinements under limited evidence. Future work therefore focuses on (i) strengthening grammar enforcement via a strongly typed rule generator and parser based acceptance mechanism that rejects any output violating the grammar or structural format; (ii) reinforcing semantic validation beyond a static regression test suite through simulation based falsification and robustness testing to ensure consistency over the broader input space and the stated ODD, while flagging unjustified tightened constraints and exposing unsafe overfitting; and (iii) mitigating overly conservative refinements by incorporating change minimality into an independent selection mechanism so edits are penalized even when decisiveness is high. For evaluation, we will broaden baselines and study subjects to assess whether grammar constrained LLM refinement offers clear benefits over established interpretable rule learning and specification mining. We will then scale experiments across multiple ADS subsystems, requirements, and ODDs, and study how expanded grammars, prompting strategies, and validation mechanisms affect refinement quality and safety risk in operational settings.
     </p>
 
   </main>
@@ -108,3 +107,4 @@
   </script>
 </body>
 </html>
+
