@@ -33,21 +33,61 @@
 
   <!-- Authors below header -->
   <div class="container mt-3 authors_container">
-    <p class="authors_names"><i class="fa-solid fa-users"></i> Khouloud Gaaloul,Zaid Ghazal,Madhu Latha Pulimi,Sam Emmanuel Kathiravan</p>
+    <p class="authors_names">
+      <i class="fa-solid fa-users"></i>
+      Khouloud Gaaloul, Zaid Ghazal, Madhu Latha Pulimi, Sam Emmanuel Kathiravan
+    </p>
     <p class="year"><i class="fa-solid fa-calendar-days"></i> SEAMS 2026</p>
   </div>
 
   <main class="container mt-4">
+
     <!-- Buttons -->
     <div class="button_group mb-4">
-      <a href="Prompt.docx" target="_blank" class="btn btn-info text-white"> Prompt</a>
-      <a href="Output.docx" target="_blank" class="btn btn-warning"> Refined Rules</a>
+      <a href="Prompt.docx" target="_blank" class="btn btn-info text-white">Prompt</a>
+      <a href="Output.docx" target="_blank" class="btn btn-warning">Refined Rules</a>
     </div>
 
     <!-- Abstract -->
     <h2>Abstract</h2>
     <p>
-  Safety specifications in cyber-physical systems (CPS) capture the operational conditions that a system shall satisfy to operate safely within its intended environment. As operating environments evolve, operational rules that encode acceptance criteria must be continuously refined to preserve consistency with observed system behavior during simulation-based verification and validation. Refining inconsistent rules is challenging because the changes must remain syntactically correct under a domain specific grammar and semantically justified with respect to observed outcomes. Additionally, language-in-the-loop refinement raises safety concerns beyond syntactic violations that risk overfitting to the observed dataset. We introduce a rule refinement framework that combines counterfactual reasoning to localize inconsistency boundaries with a grammar constrained LLM refinement loop to synthesize interpretable rule edits. Applied to an autonomous driving control subsystem, theapproach resolves inconsistencies in an operational rule inferred by a conventional baseline while remaining grammar compliant.An LLM variant study findings motivate the plan for future work.  </main>
+   Safety specifications for CPS rely on operational rules that translate safety requirements into testable conditions over system execution used for verification and validation. In autonomous driving, these rules are scoped by the Operational Design Domain (ODD) [6, 8] and guided by ISO 26262 [5] and ISO/PAS 21448 (SOTIF) [13]. They are typically expressed as logical or quantitative constraints over environment and system variables, and evaluated through simulation-based testing [20] to ensure safe operation within the declared operational boundaries. However, as the operating conditions evolves and the system behavior shifts, keeping operational rules valid and aligned with observed executions becomes a recurring challenge.Mining operational rules from observed traces has been commonly performed by learning linear temporal logic (LTL) properties [18, 19], using machine learning and specification mining methods [10, 15], typically constrained by templates rather than a domain specific grammar. Other works use surrogate models [11, 12, 23] and genetic programming (GP) [7] as interpretable methods to inferand correct STL properties, or apply parameter mining and falsification [2, 9, 14] to tune bounds that make observed behaviors satisfy a fixed specification. No prior work is designed to automatically refine an existing inconsistent operational rule under a domain specific grammar. Recent work has explored using LLMs to support the construction and maintenance of safety specification artifacts. Nouri et al. [17] propose a prompt based pipeline for an automotive SafetyOps workflow that generates safety requirements and then checks the resulting rule set for redundancy,contradictions, and other quality issues. Li et al. [16] use LLMs to generate LTL specifications under safety restrictions, then iteratively refine candidate formulas using language inclusion checks and counterexamples. Both works commonly combine LLM generation with automated validation. However, to our knowledge, no prior work uses grammar-constrained LLMs to refine an existing inconsistent specification to align with observed system behavior.Moreover, existing validation in LLM based specification synthesis typically targets syntactic or format compliance, rather than consistency with runtime outcomes. We propose an approach for refining operational rules to resolve inconsistencies between rule verdictsand observed system behavior, while keeping the underlying safety specification unchanged. Rather than constructing a formal proof of compliance, our approach is guided by observed counterfactual evidence. The core novelty is combining counterfactual analysis with a domain-specific grammar-constrained LLM to synthesize minimal refinements of operational rules while preserving syntactic correctness and semantic validity. The main contribution of this paper is a rule refinement framework that combines counterfactual reasoning to localize inconsistency boundaries between operational rules and observed behavior, and grammar-constrained LLMs to generate interpretable, syntactically valid refinements to the operational rules that capture pre-specified safety requirement within a stated ODD. We report an initial empirical study on an autonomous driving subsystem (ADS) that evaluates the effectiveness of ourapproach and the language-in-the-loop refinement quality.
+    </p>
+
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+
+    <!-- Image after Introduction -->
+    <div class="text-center my-4">
+      <img
+        src="assets/introduction_figure.png"
+        alt="Grammar-constrained refinement framework overview"
+        class="img-fluid"
+        style="max-width: 800px;"
+      />
+      <p class="text-muted mt-2">
+        Figure 1: Overview of the grammar-constrained refinement loop.
+      </p>
+    </div>
+
+    <p>
+  Can grammar-constrained refinement loop using large language models (LLMs) automatically refine inconsistent operational rules while preserving syntactic correctness and semantic validity, and what safety concerns emerge from language-in-the-loop refinement?
+  </p>
+    <!-- Approach -->
+    <h2>Approach</h2>
+    <p>
+      
+  We introduce a grammar-constrained rule refinement framework that leverages counterfactual reasoning combined with grammar-constrained LLM to produce interpretable, syntactically and semantically valid refinements of operational rules. 
+  1) Counterfactual Analysis: This step takes as input an inconsistent operational rule and a labeled simulation dataset containing test inputs and observed outcomes. It produces a counterfactual evidence file by generating counterfactual inputs for inputs that expose inconsistencies in the rule.
+  2) Rule Refinement Loop: This step runs an iterative loop that uses the evidence, the grammar, and previously consistent rules to have a grammar constrained LLM propose a minimally modified refinement of the inconsistent rule, such as tightening a threshold or adjusting logical structure. Each candidate refinement is checked for grammar and vocabulary compliance, consistency with historical rules using satisfiability checks, and semantic validity on the dataset, and the loop repeats until a refinement passes all checks. The step outputs the validated refined rule along with a brief change log and explanation of how it resolves the observed inconsistency.
+    </p> 
+    <!-- Conclusion -->
+    <h2>Conclusion</h2>
+    <p>
+  An initial study on an autonomous driving subsystem showed that our loop eliminates inconsistencies produced by the selected conventional method, with $+0.14$ decisiveness. An LLM variant study further exposed model dependent quality and safety trade offs including syntactic violations and over constraining operational rule refinements that risk overfitting to the test data. Limitations of this initial exploration is that grammar compliance alone may result in semantically unjustified or overly conservative refinements under limited evidence. Future work therefore focuses on (i) strengthening grammar enforcement via a strongly typed rule generator and parser based acceptance mechanism that rejects any output violating the grammar or structural format; (ii) reinforcing semantic validation beyond a static regression test suite through simulation based falsification and robustness testing to ensure consistency over the broader input space and the stated ODD, while flagging unjustified tightened constraints and exposing unsafe overfitting; and (iii) mitigating overly conservative refinements by incorporating change minimality into an independent selection mechanism so edits are penalized even when decisiveness is high. For evaluation, we will broaden baselines and study subjects to assess whether grammar constrained LLM refinement offers clear benefits over established interpretable rule learning and specification mining. We will then scale experiments across multiple ADS subsystems, requirements, and ODDs, and study how expanded grammars, prompting strategies, and validation mechanisms affect refinement quality and safety risk in operational settings.
+    </p>
+
+  </main>
 
   <footer class="text-center mt-5 mb-3">
     <p>&copy; 2026 All rights reserved. All Authors</p>
@@ -58,7 +98,7 @@
       const bibtex = `
 @inproceedings{yourkey2026,
   title     = {Grammar-Constrained Refinement of Safety Operational Rules Using Language in the Loop: What Could Go Wrong},
-  author    = {Khouloud Gaaloul,Zaid Ghazal,Madhu Latha Pulimi,Sam Emmanuel Kathiravan},
+  author    = {Khouloud Gaaloul, Zaid Ghazal, Madhu Latha Pulimi, Sam Emmanuel Kathiravan},
   booktitle = {Proceedings of SEAMS 2026},
   year      = {2026}
 }`;
@@ -68,10 +108,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
